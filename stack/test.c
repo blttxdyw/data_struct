@@ -3,9 +3,8 @@
 
 int main(int argc, char const *argv[])
 {
-	seqstack_t *S;
-	data_t n=3;
-
+	seqstack_t *s;
+	data_t n = 3;
 	s = stack_create(n);
 
 	stack_push(s,10);
@@ -15,16 +14,10 @@ int main(int argc, char const *argv[])
 
 	while(!stack_empty(s))
 	{
-		printf("%d",stack_pop(s));
+		printf("%d\t",stack_pop(s));
 	}
-	put("");
+	puts("");
 
-#if 0
-	free(s->data);
-	s->data = NULL;
-	free(s);
-	s = NULL;
-#endif
 	stack_free(s);
 	return 0;
 }

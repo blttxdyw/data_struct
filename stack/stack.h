@@ -18,7 +18,7 @@ typedef struct
 extern seqstack_t *stack_create(int len);
 extern data_t stack_empty(seqstack_t *s);
 extern void stack_clear(seqstack_t *s);
-extern data_t statck_full(seqstack_t *s);
+extern data_t stack_full(seqstack_t *s);
 extern data_t stack_push(seqstack_t *s,data_t value);
 extern data_t stack_pop(seqstack_t *s);
 extern data_t stack_top(seqstack_t *s);

@@ -1,5 +1,11 @@
 #include"linkstack.h"
 
+
+/*
+@Function: 	linkstack_create
+@Describe:	create a empty link stack
+@Return	 :	sucess return a pointer, or else return NULL
+*/
 linklist linkstack_create()
 {
 	linklist s;
@@ -8,18 +14,28 @@ linklist linkstack_create()
 		printf("malloc memory fail!!\n");
 		return NULL;
 	}
-	s->data = 0
+	s->data = 0;
 	s->next = NULL;
 	return s;
 }
 
 
+/*
+@Function: 	linkstack_empty
+@Describe:	judge the link stack if it is empty
+@Return	 :	empty return 1, or else return 0
+*/
 int linkstack_empty(linklist s)
 {
 	return (s->next == NULL ? 1:0);
 }
 
 
+/*
+@Function: 	linkstack_push
+@Describe:	push a data to the link stack
+@Return	 :	sucess return 0, or else return -1
+*/
 int linkstack_push(linklist s,datatype value)
 {
 	linklist p;
@@ -36,6 +52,11 @@ int linkstack_push(linklist s,datatype value)
 }
 
 
+/*
+@Function: 	linkstack_pop
+@Describe:	pop a data from the link stack
+@Return	 :	sucess return the data pop
+*/
 datatype linkstack_pop(linklist s)
 {
 	linklist p;
@@ -50,13 +71,22 @@ datatype linkstack_pop(linklist s)
 }
 
 
+/*
+@Function: 	linkstack_top
+@Describe:	get the data on top from the link stack
+@Return	 :	sucess return the data
+*/
 datatype linkstack_top(linklist s)
 {
 	return (s->next->data);
 }
 
-
-//do not delete header
+/*
+@Function: 	linkstack_clear
+@Describe:	delete all the node from the stack,
+			but do not delete header
+@Return	 :	NULL
+*/
 void linkstack_clear(linklist s)
 {
 	linklist p;
@@ -69,11 +99,16 @@ void linkstack_clear(linklist s)
 		free(p);
 		p = s->next;
 	}
-	put("");
+	puts("");
 }
 
 
-//delete header 
+/*
+@Function: 	linkstack_free
+@Describe:	delete all the node from the stack,
+			and delete header
+@Return	 :	NULL
+*/ 
 void linkstack_free(linklist s)
 {
 	linklist p;
@@ -87,5 +122,5 @@ void linkstack_free(linklist s)
 		free(p);
 		p = s;
 	}
-	put("");
+	puts("");
 }
